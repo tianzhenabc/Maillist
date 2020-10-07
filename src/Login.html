@@ -30,8 +30,13 @@
     function doSubmit(){
 
         if(notTextNull("username")&&notTextNull("password")){
-            alert("可以提交新记录");
-            document.getElementById('loginForm').submit();
+            if(document.getElementById('username').value=="admin"&&document.getElementById('password').value=="666666"){
+                alert("可以提交新记录");
+                document.getElementById('loginForm').submit();
+            }else{
+                alert("用户名或密码错误");
+            }
+
         }
     }
     function notTextNull(str)

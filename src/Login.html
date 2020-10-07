@@ -3,27 +3,48 @@
 <head>
     <meta http-equiv="content-type" content="text/html;charset=utf-8">
     <link rel="stylesheet" href="css/index.css" />
-    <title>个人通讯录管理系统</title>
+    <title>通讯录管理系统</title>
 </head>
 <body>
 <div id="login_box">
-<form method="post" action="main.html">
+<form id="loginForm" method="post" action="main.html">
     <h1>登录</h1>
     <div>
         <img src="imag/1-1.png"/>
-        <input type="text" placeholder="请输入用户名" name="username"/>
+        <input type="text" placeholder="请输入用户名" id="username"/>
     </div>
     <div>
         <img src="imag/1-2.png"/>
-        <input type="password" placeholder="请输入密码" name="password"/>
+        <input type="password" placeholder="请输入密码" id="password"/>
     </div>
     <br/>
     <div>
-        <input type="submit" name="submit" value="提交"/>
-        <input type="reset" name="reset" value="重置">
+        <button type="button" onclick="doSubmit()">提交</button>
+        <button type="button" onclick="document.getElementById('loginForm').reset()">重置</button>
     </div>
 
 </form>
 </div>
 </body>
+<script>
+    function doSubmit(){
+
+        if(notTextNull("username")&&notTextNull("password")){
+            alert("可以提交新记录");
+            document.getElementById('loginForm').submit();
+        }
+    }
+    function notTextNull(str)
+    {
+
+
+        if (document.getElementById(str).value=="")
+        {
+            alert("不能为空");
+            document.getElementById(str).focus();
+            return false;
+        }
+        return true;
+    }
+</script>
 </html>
